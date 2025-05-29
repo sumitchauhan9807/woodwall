@@ -1,0 +1,19 @@
+Backend Content :-
+
+1. Fullscreen banner on startpage
+
+menu:-
+  Home , Books/Series , About Seraphin , News/Updates , Contact , Media , Press ,Store
+
+Books:-
+ Title
+ SubTitle
+ Description
+ Avatar
+ Price (euro/usd)
+ Gallery
+ DemoPdf
+
+News/Updates :-
+  Title
+  FacebookLink

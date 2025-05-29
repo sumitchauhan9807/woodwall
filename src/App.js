@@ -1,3 +1,8 @@
+
+import Banner from 'src/assets/images/banner.jpeg'
+import e1 from 'src/assets/images/e1.jpeg'
+import e2 from 'src/assets/images/e2.jpeg'
+
 // import 'src/index.css'
 import 'src/App.css'
 
@@ -6,7 +11,7 @@ function App() {
     <div className="App dark">
       <div>
         {/* ====== Navbar Section Start */}
-        <header x-data= 'fixed z-50 bg-white dark:bg-dark bg-opacity-80 shadow-sm backdrop-blur-sm'  className="top-0 left-0 z-50 w-full bg-white lg:overflow-hidden dark:bg-dark">
+        <header x-data= 'bg-white dark:bg-dark bg-opacity-80 shadow-sm backdrop-blur-sm'  className=" w-full bg-white lg:overflow-hidden dark:bg-dark">
           <div className="container mx-auto">
             <div className="relative flex items-center justify-between -mx-4">
               <div className="relative z-10 max-w-full px-4 py-3 w-60">
@@ -69,9 +74,9 @@ function App() {
         {/* ====== Navbar Section End */}
         {/* ====== Hero Section Start */}
         <div className="relative overflow-hidden bg-white dark:bg-dark">
-          <div className="relative z-10 pb-20 pt-[150px] lg:pb-[120px] lg:pt-[210px]">
-            <img src="https://demo.tailgrids.com/templates/business/build/src/assets/images/hero/hero-image-07.jpg" alt="image" className="absolute top-0 left-0 z-[-1] h-full w-full object-cover object-center" />
-            <div className="container mx-auto">
+          <div style={{height:'950px'}} className="relative z-10 pb-20 pt-[150px] lg:pb-[120px] lg:pt-[210px]">
+            <img src={Banner} alt="image" className="absolute top-0 left-0 z-[-1] h-full w-full" />
+            {/* <div className="container mx-auto">
               <div className="flex flex-wrap -mx-4">
                 <div className="w-full px-4">
                   <div className="max-w-[570px] bg-white dark:bg-dark-2 py-10 px-8 sm:p-12 md:p-[60px]">
@@ -101,7 +106,7 @@ function App() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         {/* ====== Hero Section End */}
@@ -113,15 +118,15 @@ function App() {
                 <div className="flex items-center -mx-3 sm:-mx-4">
                   <div className="w-full px-3 sm:px-4 xl:w-1/2">
                     <div className="py-3 sm:py-4">
-                      <img src="https://demo.tailgrids.com/templates/business/build/src/assets/images/services/image-1.jpg" alt="" className="w-full rounded-2xl" />
+                      <img src={e1} alt="" className="w-full rounded-2xl" />
                     </div>
                     <div className="py-3 sm:py-4">
-                      <img src="https://demo.tailgrids.com/templates/business/build/src/assets/images/services/image-2.jpg" alt="" className="w-full rounded-2xl" />
+                      <img src={e2} alt="" className="w-full rounded-2xl" />
                     </div>
                   </div>
                   <div className="w-full px-3 sm:px-4 xl:w-1/2">
                     <div className="relative z-10 my-4">
-                      <img src="https://demo.tailgrids.com/templates/business/build/src/assets/images/services/image-3.jpg" alt="" className="w-full rounded-2xl" />
+                      <img src={e2} alt="" className="w-full rounded-2xl" />
                       <span className="absolute -right-7 -bottom-7 z-[-1]">
                         <svg width={134} height={106} viewBox="0 0 134 106" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <circle cx="1.66667" cy={104} r="1.66667" transform="rotate(-90 1.66667 104)" fill="#3056D3" />
