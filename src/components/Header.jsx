@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 function Header() {
 	return (
 		<header x-data="bg-white dark:bg-dark bg-opacity-80 shadow-sm backdrop-blur-sm" className=" w-full bg-white lg:overflow-hidden dark:bg-dark">
@@ -19,16 +21,16 @@ function Header() {
 							<nav className="absolute right-4 top-full z-20 w-full max-w-[250px] rounded-lg bg-white dark:bg-dark-2 py-5 px-6 shadow lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:py-0 lg:shadow-none lg:dark:bg-transparent">
 								<ul className="blcok lg:flex">
 									<li>
-										<a href="javascript:void(0)" className="flex py-2 text-base font-medium border-transparent text-dark dark:text-white hover:border-primary hover:text-primary dark:hover:text-primary lg:ml-10 lg:inline-flex lg:border-t-2 lg:py-7">
+										<Link to="/"  className="flex py-2 text-base font-medium border-transparent text-dark dark:text-white hover:border-primary hover:text-primary dark:hover:text-primary lg:ml-10 lg:inline-flex lg:border-t-2 lg:py-7">
 											Home
-										</a>
+										</Link>
 									</li>
 									<li>
-										<a href="javascript:void(0)" className="flex py-2 text-base font-medium border-transparent text-dark dark:text-white hover:border-primary hover:text-primary dark:hover:text-primary lg:ml-10 lg:inline-flex lg:border-t-2 lg:py-7">
-											About
-										</a>
+										<Link to="/books" className="flex py-2 text-base font-medium border-transparent text-dark dark:text-white hover:border-primary hover:text-primary dark:hover:text-primary lg:ml-10 lg:inline-flex lg:border-t-2 lg:py-7">
+											Books
+										</Link>
 									</li>
-									<li>
+									{/* <li>
 										<a href="javascript:void(0)" className="flex py-2 text-base font-medium border-transparent text-dark dark:text-white hover:border-primary hover:text-primary dark:hover:text-primary lg:ml-10 lg:inline-flex lg:border-t-2 lg:py-7">
 											Pricing
 										</a>
@@ -37,7 +39,7 @@ function Header() {
 										<a href="javascript:void(0)" className="flex py-2 text-base font-medium border-transparent text-dark dark:text-white hover:border-primary hover:text-primary dark:hover:text-primary lg:ml-10 lg:inline-flex lg:border-t-2 lg:py-7">
 											Features
 										</a>
-									</li>
+									</li> */}
 								</ul>
 							</nav>
 						</div>
