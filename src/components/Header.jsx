@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Link } from "react-router";
 
 function Header() {
+	const [showNav,setShowNav] = useState(false)
 	return (
 		<header x-data="bg-white dark:bg-dark bg-opacity-80 shadow-sm backdrop-blur-sm" className=" w-full bg-white lg:overflow-hidden dark:bg-dark">
 			<div className="container mx-auto">
@@ -13,16 +15,16 @@ function Header() {
 					</div>
 					<div className="flex items-center justify-between w-full px-4">
 						<div>
-							<button id="navbarToggler" className="absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden">
+							<button onClick={()=> { setShowNav(()=>!showNav) }} className="absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden">
 								<span className="relative my-[6px] block h-[2px] w-[30px] bg-body-color dark:bg-white" />
 								<span className="relative my-[6px] block h-[2px] w-[30px] bg-body-color dark:bg-white" />
 								<span className="relative my-[6px] block h-[2px] w-[30px] bg-body-color dark:bg-white" />
 							</button>
-							<nav className="absolute right-4 top-full z-20 w-full max-w-[250px] rounded-lg bg-white dark:bg-dark-2 py-5 px-6 shadow lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:py-0 lg:shadow-none lg:dark:bg-transparent">
+							<nav className={`absolute right-4 top-full z-20 w-full max-w-[250px] rounded-lg bg-white dark:bg-dark-2 py-5 px-6 shadow lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:py-0 lg:shadow-none lg:dark:bg-transparent ${showNav ? '' : 'hidden'}`}>
 								<ul className="blcok lg:flex">
 									<li>
 										<Link to="/"  className="flex py-2 text-base font-medium border-transparent text-dark dark:text-white hover:border-primary hover:text-primary dark:hover:text-primary lg:ml-10 lg:inline-flex lg:border-t-2 lg:py-7">
-											Home
+											Home {showNav}
 										</Link>
 									</li>
 									<li>

@@ -30,7 +30,7 @@ function Book() {
 				<div className="grid md:grid-cols-2 gap-8">
 					<div className="space-y-4">
 						<div className="aspect-square bg-gray-100 dark:bg-gray-800 rounded-xl overflow-hidden">
-							<img src={baseUrl() +  data.Avatar.url} alt="Reebok Zig Kinetica 3" className="w-full h-full object-cover" />
+							<img src={baseUrl() +  data.Avatar.url} alt="Reebok Zig Kinetica 3" className="w-full h-full " />
 						</div>
 						<div className="grid grid-cols-4 gap-4">
 							<button className="aspect-square bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden border-2 border-primary">
