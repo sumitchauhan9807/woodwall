@@ -4,6 +4,10 @@ import { useLocation } from "react-router-dom";
 import Home from "src/views/Home";
 import Books from "src/views/Books";
 import Book from "src/views/Book";
+import Cart from "src/views/Cart";
+import Register from "src/views/Register";
+import Login from "src/views/Login";
+
 
 import Header from "src/components/Header";
 import UserProfileHeader from "src/components/UserProfileHeader";
@@ -22,6 +26,10 @@ function Router() {
 			<UserProfileHeader/>
 			<Routes>
 				<Route exact path="/" element={<Home />} />
+				<Route exact path="/signup" element={<Register />} />
+				<Route exact path="/login" element={<Login />} />
+				<Route exact path="/cart" element={<Cart />} />
+
 				<Route exact path="/books" element={<Books/>} />
 				<Route exact path="/book/:id" element={<Book/>} />
 			</Routes>

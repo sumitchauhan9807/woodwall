@@ -32,6 +32,16 @@ function Header() {
 											Books
 										</Link>
 									</li>
+									<li>
+										<Link to="/signup" className="flex py-2 text-base font-medium border-transparent text-dark dark:text-white hover:border-primary hover:text-primary dark:hover:text-primary lg:ml-10 lg:inline-flex lg:border-t-2 lg:py-7">
+											Sign Up
+										</Link>
+									</li>
+									<li>
+										<Link to="/login" className="flex py-2 text-base font-medium border-transparent text-dark dark:text-white hover:border-primary hover:text-primary dark:hover:text-primary lg:ml-10 lg:inline-flex lg:border-t-2 lg:py-7">
+											Login
+										</Link>
+									</li>
 									{/* <li>
 										<a href="javascript:void(0)" className="flex py-2 text-base font-medium border-transparent text-dark dark:text-white hover:border-primary hover:text-primary dark:hover:text-primary lg:ml-10 lg:inline-flex lg:border-t-2 lg:py-7">
 											Pricing

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { constructQueryString } from "src/helpers";
+import { constructQueryString ,getProductPrice } from "src/helpers";
 import { PageSkeleton } from "src/components/basic/Skeletons";
 import { baseUrl } from "src/helpers";
 
@@ -63,7 +63,7 @@ const ProductTile = ({book}) => {
 					</h3>
 					<p className="mt-1 text-sm text-gray-500">{data.SubTitle}</p>
 				</div>
-				<p className="text-sm font-medium text-gray-900">$ {data.Price.Euro.StripePrice}</p>
+				<p className="text-sm font-medium text-gray-900">$ {getProductPrice(data)}</p>
 			</div>
 		</div>
     </Link>

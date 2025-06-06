@@ -1,16 +1,24 @@
 import { useEffect, useState } from "react";
-
-import { constructQueryString } from "src/helpers";
+import Modal from 'src/components/basic/Modal'
+import { constructQueryString ,getProductPrice } from "src/helpers";
 import { PageSkeleton } from "src/components/basic/Skeletons";
 import Breadcrumb from 'src/components/Breadcrumb'
 import { baseUrl } from "src/helpers";
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import useAxios from "src/Hooks/uaeAxios";
+import useCart from "src/Hooks/useCart";
+import Cart from "src/views/Cart";
+import Animate from "src/components/basic/Animate";
+
+
 let qs = constructQueryString(["Avatar","Price.Euro","Gallery"]);
 
 function Book() {
   const [data, setData] = useState([]);
+	const [cartHidden,setShowCart] = useState(true)
+	const [bookType,setBookType] = useState('paperblack')
   const { id } = useParams();
+	const {addToCart} = useCart()
   const { response, loading, error } = useAxios({
 		method: "get",
 		url: `books/${id}?${qs}`,
@@ -26,12 +34,21 @@ function Book() {
 	return (
 		<div>
       <Breadcrumb path={['Home',data.Title]}/>
+			<Modal hidden={cartHidden} setHidden={setShowCart}>
+				<Cart/>
+			</Modal>
 			<main className="container mx-auto px-4 py-8">
 				<div className="grid md:grid-cols-2 gap-8">
 					<div className="space-y-4">
+					<Animate
+						config={{
+							animateIn: "bounceInUp",
+						}}
+					>
 						<div className="aspect-square bg-gray-100 dark:bg-gray-800 rounded-xl overflow-hidden">
 							<img src={baseUrl() +  data.Avatar.url} alt="Reebok Zig Kinetica 3" className="w-full h-full " />
 						</div>
+						</Animate>
 						<div className="grid grid-cols-4 gap-4">
 							<button className="aspect-square bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden border-2 border-primary">
 								<img src={baseUrl() +  data.Avatar.url} alt="Thumbnail 1" className="w-full h-full object-cover" />
@@ -78,7 +95,7 @@ function Book() {
 									<span className="text-sm text-gray-500 dark:text-gray-400">(42 reviews)</span>
 								</div>
 							</div>
-							<div className="text-3xl font-bold">$ {data.Price.Euro.StripePrice}</div>
+							<div className="text-3xl font-bold">$ { getProductPrice(data)}</div>
 						</div>
 						{/* Color Selection */}
 						{/* <div>
@@ -102,16 +119,14 @@ function Book() {
 								{/* <button className="text-primary text-sm">Type</button> */}
 							</div>
 							<div className="grid grid-cols-4 gap-2">
-							
-								<button className="py-3 border border-gray-200 dark:border-gray-700 rounded-lg bg-primary text-white">Paperblack</button>
-								<button className="py-3 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-primary">Ebook</button>
-								
+								<button onClick={() => setBookType('paperblack')} className={`py-3 border border-gray-200 dark:border-gray-700 rounded-lg ${bookType == 'paperblack' ?'bg-primary text-white':'hover:border-primary'}`}>Paperblack</button>
+								<button onClick={() => setBookType('ebook')} className={`py-3 border border-gray-200 dark:border-gray-700 rounded-lg ${bookType == 'ebook' ?'bg-primary text-white':'hover:border-primary'}`}>Ebook</button>
 							</div>
 						</div>
 						{/* Add to Cart */}
 						<div className="flex gap-4">
-							<button className="flex-1 bg-primary text-white py-4 rounded-xl hover:bg-primary/90">
-								<a href="https://abhirajk.vercel.app/">Add to cart</a>
+							<button onClick={(e)=>{e.preventDefault(); addToCart({product:data,bookType:bookType}) ; setShowCart(false)}} className="flex-1 bg-primary text-white py-4 rounded-xl hover:bg-primary/90">
+								<a href="#">Add to cart</a>
 							</button>
 							<button className="w-14 h-14 flex items-center justify-center border border-gray-200 dark:border-gray-700 rounded-xl hover:border-primary">
 								<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -129,6 +144,7 @@ function Book() {
               </a>
               {/* <p className="mb-5 text-base text-body-color dark:text-dark-6" 	dangerouslySetInnerHTML={{ __html: data.Description.replace(/\n/g,"<br />") }}></p> */}
 						</div>
+						<Link to="/cart" type="button" className="text-center flex-1 bg-primary text-white py-4 rounded-xl hover:bg-primary/90 w-full">Checkout</Link>
 					</div>
 				</div>
 				{/* Reviews Section */}

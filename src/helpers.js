@@ -10,3 +10,7 @@ export const constructQueryString = (fields) => {
 	});
 	return str;
 };
+
+export const getProductPrice = (product) => {
+	return product.Price.Euro.StripePrice
+}
