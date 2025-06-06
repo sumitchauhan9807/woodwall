@@ -25,7 +25,7 @@ function Register() {
 	} = useForm({
 		resolver: zodResolver(schema),
 	});
-	const [recapval, setRecapval] = useState("");
+	const [recapval, setRecapval] = useState("asd");
 	const [formSubmitted, isFormSubmitted] = useState(false);
 	const [loading, isLoading] = useState(false);
 
@@ -140,7 +140,7 @@ function Register() {
 							{errors.password && <p className="text-red-500 text-xs italic mt-2">{errors.password.message}</p>}
 						</div>
 						<div>
-							<ReCAPTCHA sitekey="6LcznZkqAAAAAJDAqNGkqN1Cb3cfuFHMmkzp3v06" onChange={onChange} />,
+							{/* <ReCAPTCHA sitekey="6LdOoVcrAAAAAOfz6aBJhzupCrHiBL7u30VJ0Ote" onChange={onChange} />, */}
 							<button type="submit" className="w-full inline-flex items-center justify-center py-3 text-base font-medium text-center text-white border border-transparent rounded-md px-7 bg-primary hover:bg-opacity-90">
 								Create an account
 							</button>
